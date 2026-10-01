@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="stylesheet" href="styles.css"/>
+<title>Starship Manuel · DNS</title>
+</head>
+<body>
+<header class="site-header">
+  <div class="shell">
+    <h1>DNS lane</h1>
+    <p class="lede">Captain added DNS 2026-09-28. Public cutover is still off. pianomanuel.com is not live from this repo.</p>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Bridge</a>
+      <a href="meta.html">Meta</a>
+      <a href="board.html">Board</a>
+    </nav>
+  </div>
+</header>
+<main class="shell">
+  <div class="card">
+    <table>
+      <thead><tr><th>name</th><th>target</th><th>state</th></tr></thead>
+      <tbody>
+        <tr><td>public_dns</td><td>pianomanuel.com</td><td>off · expired · not cut over</td></tr>
+        <tr><td>dns_lane</td><td>loopback</td><td>on</td></tr>
+        <tr><td>A / local hub</td><td>127.0.0.1:8444</td><td>bridge.html</td></tr>
+        <tr><td>A / Main Thing</td><td>127.0.0.1:8443</td><td>API</td></tr>
+        <tr><td>GitHub Pages</td><td>—</td><td>not enabled</td></tr>
+        <tr><td>Azure host</td><td>—</td><td>blocked_on_subscription</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Schema file <code>schema/015_dns.sql</code>. Load with <code>./scripts/migrate_beta.sh</code> into BETA sqlite only. Then <code>PRAGMA user_version;</code> — expect 15 after this file is wired into the runner.</p>
+  </div>
+</main>
+</body>
+</html>

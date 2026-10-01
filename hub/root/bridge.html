@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="theme-color" content="#000000"/>
+<title>Starship Manuel · Hub Bridge</title>
+<link rel="stylesheet" href="css/hub.css"/>
+<style>
+:root{--line:rgba(255,255,255,.16);--line-hi:rgba(255,255,255,.55);--gold:#c9a227;--ink:#e6e6e6;--dim:#8a8a8a;--ok:#9fd8b0;--amber:#d9b45a}
+html,body{background:#000;margin:0;color:var(--ink);font:400 15px/1.5 Inter,Helvetica,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+.bar{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:flex-end;padding:2rem 2.4rem 1.2rem;border-bottom:1px solid var(--line)}
+.ship{font-weight:300;font-size:1.6rem;letter-spacing:.36em;text-transform:uppercase;color:#fff}
+.ship small{display:block;margin-top:.6rem;font-size:10.5px;letter-spacing:.22em;color:var(--dim);font-weight:500}
+.bchip{font-size:10.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.2em}
+.bchip b{color:#fff}
+.bchip.warn b{color:var(--gold)}
+.deck{max-width:1100px;margin:0 auto;padding:2rem 1.6rem 3rem;display:grid;gap:1.6rem}
+.station{border-top:1px solid var(--line-hi);padding:.9rem 0 0}
+.station h2{margin:0 0 .4rem;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase}
+.station p{margin:0 0 .8rem;color:var(--dim);font-size:13px;font-weight:300}
+.keys a{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.keys a:hover{color:#fff}
+.readout dl{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1.2rem;margin:0}
+.readout dt{color:var(--dim);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase}
+.readout dd{margin:0}
+.lamp{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:.5rem;background:var(--dim)}
+.lamp.ok{background:var(--ok)}.lamp.lhold{background:var(--amber)}
+.foot{text-align:center;color:var(--dim);font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:0 1rem 2rem}
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="ship">Starship Manuel<small>Hub Bridge · FINAL BETA 1.04 · local :8444</small></div>
+  <div>
+    <span class="bchip warn">release gate <b>PUBLIC_DNS=off</b></span>
+    <span class="bchip">stardate <b id="sd">—</b></span>
+  </div>
+</header>
+<main class="deck">
+  <div class="station">
+    <h2>Compiled Bridge</h2>
+    <p>Same ship. Two doors. This page is the hub door. The compiled Window is site/index.html after git pull.</p>
+    <div class="keys">
+      <a href="index.html">Hub board</a>
+      <a href="modules/vagabond.html">Vagabond · Baltic</a>
+      <a href="modules/ucc.html">UCC · Mediterranean</a>
+      <a href="https://127.0.0.1:8443/">Main Thing :8443</a>
+      <a href="https://www.mentalcanvas.net/p3cpw7wsusj" target="_blank" rel="noopener noreferrer">Mental Canvas viewscreen</a>
+    </div>
+  </div>
+  <div class="readout station">
+    <h2>Status</h2>
+    <dl>
+      <dt>Ship clock</dt><dd id="clock">—</dd>
+      <dt>Sentinel</dt><dd><span class="lamp" id="sentLamp"></span><span id="sent">checking…</span></dd>
+      <dt>Release gate</dt><dd><span class="lamp lhold"></span>PUBLIC_DNS=off · Hold</dd>
+      <dt>Build</dt><dd>FINAL BETA 1.04 · hub bridge 2026-09-28</dd>
+    </dl>
+  </div>
+</main>
+<p class="foot">© 2026 Joseph Robert Manuel, IV · private hub bridge · dark by default</p>
+<script src="bridge.js"></script>
+</body>
+</html>

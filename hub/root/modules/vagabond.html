@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vagabond — Story Time</title>
+  <style>
+    :root { --bg:#0b0e12; --panel:#141a22; --ink:#d7e0ea; --mute:#8a97a6; --line:#2a3440; --gold:#c4a574; --sea:#6aa8b8; --ok:#7dba8a; }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--ink); font:15px/1.45 sans-serif; }
+    .wrap { max-width:720px; margin:0 auto; padding:28px 18px 64px; }
+    header { border-bottom:1px solid var(--line); padding-bottom:16px; margin-bottom:22px; }
+    .kicker { color:var(--gold); letter-spacing:.14em; font-size:11px; text-transform:uppercase; }
+    h1 { font-size:22px; margin:6px 0 4px; }
+    .meta { color:var(--mute); font-size:13px; }
+    .grid { display:grid; gap:12px; }
+    .card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+    .card h2 { font-size:13px; color:var(--sea); letter-spacing:.08em; text-transform:uppercase; margin:0 0 8px; }
+    .row { display:flex; justify-content:space-between; gap:12px; padding:4px 0; border-bottom:1px dashed #24303a; }
+    .label { color:var(--mute); }
+    .val { text-align:right; }
+    button.story { width:100%; margin-top:16px; background:#1c2a32; color:var(--ink); border:1px solid var(--sea); border-radius:10px; padding:14px 16px; letter-spacing:.12em; text-transform:uppercase; cursor:pointer; }
+    button.story[aria-pressed="true"] { border-color:var(--gold); color:var(--gold); }
+    a { color:inherit; }
+    .pill { display:inline-block; border:1px solid var(--line); color:var(--ok); padding:2px 8px; border-radius:999px; font-size:11px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="kicker"><a href="../index.html">Hub</a> · CIR-010 · CARD-029</div>
+      <h1>Starship Vagabond</h1>
+      <div class="meta">Three rows hand-filed 26 Sep 2026. <span class="pill">PUBLIC_DNS off</span></div>
+    </header>
+    <div class="grid">
+      <section class="card"><h2>FR-JBI</h2><div class="row"><span class="label">Jackie Brenton-Iodice</span><span class="val">four years</span></div></section>
+      <section class="card"><h2>FR-084</h2><div class="row"><span class="label">Ship 84 / Resolution</span><span class="val">Ben Hawks · Kevin</span></div></section>
+      <section class="card"><h2>FR-SZ</h2><div class="row"><span class="label">Skip Zahniser</span><span class="val">godfather · Solomons</span></div></section>
+    </div>
+    <button class="story" id="btn" type="button" aria-pressed="false">Story Time</button>
+    <section class="card" id="stage" hidden></section>
+  </div>
+  <script>
+    const beats = ["Jackie Brenton of Southport was his first and long-term high school girlfriend. Four years.","She later became Jacqueline Iodice.","She was on Sea Scout Ship 84 with him and about fifteen friends.","The ship's boat was Resolution. Home water: Southport Harbor.","Leader: Ben Hawks, Ship 84 skipper.","Senior scout: Kevin.","Yearly two-week sails. They sailed with a learned, kind skipper.","After two weeks the pattern was his to skipper, Chesapeake through and back.","Jackie and he kissed on that boat.","Four years. One ship. That is the record."];
+    const btn = document.getElementById("btn");
+    const stage = document.getElementById("stage");
+    btn.addEventListener("click", () => {
+      const on = btn.getAttribute("aria-pressed") === "true";
+      if (on) { btn.setAttribute("aria-pressed","false"); stage.hidden = true; stage.innerHTML=""; return; }
+      btn.setAttribute("aria-pressed","true"); stage.hidden = false;
+      stage.innerHTML = beats.map(b => "<p>"+b+"</p>").join("");
+    });
+  </script>
+</body>
+</html>

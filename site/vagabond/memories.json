@@ -1,0 +1,49 @@
+{
+  "device": "CIR-010",
+  "card": "CARD-029",
+  "panel": "Starship Vagabond",
+  "class": "factual / local only",
+  "public_dns": false,
+  "api": "off",
+  "updated": "2026-09-26T22:43:00-04:00",
+  "rule": "Do not invent scenes beyond stated facts.",
+  "records": [
+    {
+      "id": "FR-084",
+      "type": "friends-list-unit",
+      "name": "Sea Scout Ship 84",
+      "home_port": "Southport Harbor, Southport, CT",
+      "leader": { "stated_name": "Ben Hawks", "matched_name": "Bennitt Ben Hawkes" },
+      "senior_scout": { "stated_name": "Kevin" },
+      "pattern": { "yearly": "two-week sails", "training": "after two weeks he skippered Chesapeake through-and-back" },
+      "on_friends_list": true
+    },
+    {
+      "id": "FR-JBI",
+      "type": "person",
+      "name": "Jackie Brenton-Iodice",
+      "relation": "first and long-term high school girlfriend",
+      "duration_years": 4,
+      "on_the_boat": true,
+      "milestone": "kissed on that boat",
+      "on_friends_list": true,
+      "story_time": true
+    },
+    {
+      "id": "FR-SZ",
+      "type": "person",
+      "name": "Skip Zahniser",
+      "stated_name": "Skip Zanheiser",
+      "matched_name": "Albert Skip Zahniser",
+      "relation": "godfather",
+      "place": "Zahniser's Yachting Center, Solomons Island, MD",
+      "slips_stated": 500,
+      "on_friends_list": true
+    }
+  ],
+  "story_time": {
+    "id": "STORY-084-JBI",
+    "button": "Story Time",
+    "title": "Four years, one ship"
+  }
+}

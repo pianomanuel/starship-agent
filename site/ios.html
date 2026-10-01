@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="referrer" content="no-referrer"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Pianomanuel"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="theme-color" content="#c9a227"/>
+<link rel="stylesheet" href="styles.css"/>
+<title>Pianomanuel · iOS</title>
+</head>
+<body>
+<header class="site-header">
+  <div class="shell">
+    <h1>iOS surface · week of 14 Sep</h1>
+    <p class="lede">Same product as the website. This week: Home Screen + a WKWebView stub. Not an App Store binary. Not Sign in with Apple.</p>
+    <nav class="nav" aria-label="Primary">
+      <a href="app.html">App</a>
+      <a href="index.html">Window</a>
+      <a href="shop.html">Shop</a>
+      <a class="ghost" href="https://github.com/pianomanuel/ManuelOps/issues/29">#29</a>
+    </nav>
+  </div>
+</header>
+<main class="shell">
+  <section class="card">
+    <h2>Today — Add to Home Screen</h2>
+    <ol>
+      <li>Serve <code>site/</code> on a local port (test checkout, not a Sites mirror).</li>
+      <li>Open <a href="app.html">app.html</a> in Safari on the phone.</li>
+      <li>Share → Add to Home Screen → name it Pianomanuel.</li>
+    </ol>
+  </section>
+  <section class="card">
+    <h2>Thursday — native wrapper</h2>
+    <p>Source lives in <code>ios/PianomanuelHub/</code>. Bundle ID target: <code>com.pianomanuel.hub</code>. It loads bundled <code>site/index.html</code>. HTTPS host and SIWA stay Hold on #8 / #29.</p>
+  </section>
+</main>
+</body>
+</html>
