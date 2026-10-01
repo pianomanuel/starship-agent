@@ -1,0 +1,5 @@
+Contact: https://github.com/pianomanuel/ManuelOps/issues
+Preferred-Languages: en
+Expires: 2027-09-14T00:00:00.000Z
+Canonical: /security.txt
+Policy: See /security/E2E.md and LOCK.md in the private repo.

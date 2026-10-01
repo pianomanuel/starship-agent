@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>BETA 1.02 · environments · new database</title>
+<style>
+:root{--navy:#1a1a1a;--gold:#c9a227;--cream:#f7f1e3;--line:#e2d8c4;--ok:#e7f0e4;--hold:#fff3c4;--off:#f3e4e4}
+body{margin:0;font:16px/1.45 Segoe UI,Arial,sans-serif;background:var(--cream);color:#2b2b2b}
+header{background:var(--navy);color:#fff;padding:16px 18px}
+header p{color:#d9c78a;margin:6px 0 0;font-size:13px}
+nav a{display:inline-block;margin:8px 8px 0 0;background:var(--gold);color:#1a1a1a;text-decoration:none;padding:8px 10px;font:700 12px Arial}
+.wrap{max-width:880px;margin:0 auto;padding:18px 16px 48px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#1a1a1a;color:#f7f1e3;font-size:12px;letter-spacing:.04em}
+.ok{background:var(--ok)}.hold{background:var(--hold)}.off{background:var(--off)}
+.box{background:#fff;border:1px solid var(--line);padding:14px 16px;margin:14px 0}
+a{color:#0b4f8a}
+code{background:#e8eef6;padding:1px 5px}
+footer{color:#6a6a6a;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <h1>BETA 1.02 · environment map</h1>
+  <p>New MASTER database under test. Do not replace the live seed until sign-off.</p>
+  <nav>
+    <a href="index.html">Landing</a>
+    <a href="pcs-dashboard.html">PCS</a>
+    <a href="sqa-environment.html">SQA</a>
+    <a href="https://github.com/pianomanuel/ManuelOps/issues/25">Issue #25</a>
+  </nav>
+</header>
+<div class="wrap">
+  <section class="box">
+    <p>Candidate MASTER (two Drive copies — pick one, do not mint a third):</p>
+    <ul>
+      <li><a href="https://docs.google.com/spreadsheets/d/1Vw5is8K54DjiUkjU5BCs8u4ed1xMRhqt/edit">MASTER A 1Vw5is8K…</a></li>
+      <li><a href="https://docs.google.com/spreadsheets/d/14_mf6N9nyP1qizRTEkQvviso6vN-Fnnq/edit">MASTER B 14_mf6N9n…</a></li>
+    </ul>
+    <p>Fallback archive: Seed 11.2 · Seed 09-11 xlsx · Seed 09-12 PCS. Schema load path remains <code>schema/000_schema.sql</code> then circles / mssql.</p>
+  </section>
+  <table>
+    <tr><th>Environment</th><th>Role in BETA 1.02</th><th>State</th></tr>
+    <tr class="ok"><td>GitHub <code>site/</code></td><td>Compile label + this map. Writable deck.</td><td>Updated tonight</td></tr>
+    <tr class="ok"><td>GitHub <code>schema/</code></td><td>CREATE TABLE only. Load into <code>ManuelOps_BETA.sqlite</code>, not prod.</td><td>Ready to load</td></tr>
+    <tr class="hold"><td>Drive MASTER</td><td>New workbook under test. Two copies exist.</td><td>Choose source of truth</td></tr>
+    <tr class="ok"><td>Drive MIRROR-2026-09-12-TEST</td><td>Test-move folder. No source delete.</td><td><a href="https://drive.google.com/drive/folders/1MOSwhzm9M4vM15L19VVRUo9bTgUlpcoF">Open folder</a></td></tr>
+    <tr class="hold"><td>Jira PCS</td><td>Paste Rank item for #25. No API.</td><td>Macro paste</td></tr>
+    <tr class="hold"><td>Atlassian Home EDKKMYFK-1</td><td>Not a second roof.</td><td>Hold</td></tr>
+    <tr class="hold"><td>Mac MSSQL</td><td>Create database <code>ManuelOps_BETA</code>. Run <code>schema/010_mssql.sql</code>.</td><td>Local only</td></tr>
+    <tr class="hold"><td>Local Hub :8080</td><td>Ventnor / vault stay off this compile.</td><td>Open / local</td></tr>
+    <tr class="hold"><td>SQA ms.dev · ENV-01</td><td>Project URL on #16 only.</td><td>First brick</td></tr>
+    <tr class="off"><td>OneDrive / Gemini / Meta</td><td>Not connected. Do not invent a roof.</td><td>Out of scope</td></tr>
+  </table>
+  <section class="box">
+    <h2>One test slice</h2>
+    <ol>
+      <li>Name which MASTER copy is truth.</li>
+      <li>Load schema into a throwaway SQLite named <code>ManuelOps_BETA.sqlite</code>.</li>
+      <li>Import one table (circle or idea_card) — not the health sheet.</li>
+      <li>Live with it. Then decide whether Seed 11.2 is archive.</li>
+    </ol>
+    <p>Ask: if both MASTER files are byte-twins, which ID will you write on the PCS Rank line so you never open the other by habit?</p>
+  </section>
+  <footer>Joseph Robert Manuel, IV · BETA 1.02 · 2026-09-13 · no passwords on this page</footer>
+</div>
+</body>
+</html>

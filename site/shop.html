@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Pianomanuel · Shop</title>
+<style>
+:root{--navy:#1a1a1a;--gold:#c9a227;--cream:#f7f1e3;--ink:#2b2b2b;--hold:#fff3c4;--active:#e7f0e4;--prot:#f3e4e4;--open:#e8eef6;--muted:#6a6a6a;--line:#e2d8c4;--c1:#8b1e1e;--c2:#1e4a8b;--c8:#6b2e4a}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.45 Segoe UI,Arial,sans-serif;background:var(--cream);color:var(--ink)}
+header{background:var(--navy);color:#fff;padding:16px 18px 12px}
+header p{color:#d9c78a;margin:6px 0 0;font-size:13px}
+nav.dash{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+nav.dash a{background:var(--gold);color:#1a1a1a;text-decoration:none;font:700 12px Arial;padding:8px 10px}
+nav.dash a.ghost{background:transparent;color:#d9c78a;border:1px solid #5a4a20}
+.wrap{max-width:1100px;margin:0 auto;padding:16px}
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:800px){.cols{grid-template-columns:1fr 1fr}}
+.col{background:#fff;border:1px solid var(--line)}
+.col h3{margin:0;padding:10px 12px;font-size:13px;text-transform:uppercase;border-bottom:1px solid var(--line)}
+.col[data-status=Active] h3{background:var(--active)}
+.col[data-status=Open] h3{background:var(--open)}
+.col[data-status=Hold] h3{background:var(--hold)}
+.card{margin:8px;border:1px solid var(--line);background:#fffdf8}
+.deed{height:10px}
+.card-body{padding:10px 12px 12px}
+.meta{color:var(--muted);font-size:12px;margin-top:4px}
+a.chip{display:inline-block;margin:6px 6px 0 0;font-size:11px;color:#0b4f8a;background:#eef5ff;border:1px solid #c5d8ef;padding:5px 7px;text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <h1>Shop · ManuelOps</h1>
+  <p>The window is the home. This page is the board behind it.</p>
+  <nav class="dash">
+    <a href="index.html">Window home</a>
+    <a href="app.html">App</a>
+    <a href="town.html">Town</a>
+    <a href="pcs-dashboard.html">PCS</a>
+    <a href="sqa-environment.html">SQA</a>
+    <a href="crossroads.html">Crossroads</a>
+    <a href="bookmarks.html">Links</a>
+    <a href="https://www.mentalcanvas.net/p3cpw7wsusj">Canvas scene</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="cols">
+    <div class="col" data-status="Active"><h3>Active</h3>
+      <article class="card"><div class="deed" style="background:var(--c1)"></div><div class="card-body"><b>TRK-008 Kelli Nan</b><div class="meta">#12</div></div></article>
+      <article class="card"><div class="deed" style="background:var(--c2)"></div><div class="card-body"><b>TRK-015 SQA</b><div class="meta">#13</div><a class="chip" href="sqa-environment.html">Env</a></div></article>
+    </div>
+    <div class="col" data-status="Open"><h3>Open</h3>
+      <article class="card"><div class="deed" style="background:var(--c2)"></div><div class="card-body"><b>TRK-017 Town</b><div class="meta">Import + Export · #28</div><a class="chip" href="town.html">Town</a></div></article>
+      <article class="card"><div class="deed" style="background:var(--c8)"></div><div class="card-body"><b>Crossroads</b><div class="meta">#24</div><a class="chip" href="crossroads.html">Page</a></div></article>
+    </div>
+    <div class="col" data-status="Hold"><h3>Hold</h3>
+      <article class="card"><div class="deed" style="background:#5a4a20"></div><div class="card-body"><b>PIAN vs PCS</b><div class="meta">#27</div><a class="chip" href="https://github.com/pianomanuel/ManuelOps/issues/27">Roof</a></div></article>
+    </div>
+    <div class="col" data-status="Protected"><h3>Protected</h3></div>
+  </div>
+</div>
+</body>
+</html>

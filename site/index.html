@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="referrer" content="no-referrer"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://www.mentalcanvas.net; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Pianomanuel"/>
+<meta name="theme-color" content="#c9a227"/>
+<link rel="manifest" href="manifest.json"/>
+<title>Pianomanuel</title>
+<style>
+html,body{margin:0;height:100%;background:#fff;font:16px/1.4 Segoe UI,Arial,sans-serif}
+.rail{
+  position:fixed;top:0;left:0;right:0;z-index:5;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px 14px;
+  background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.55) 70%,transparent);
+}
+.rail b{font:700 16px Georgia,Times,serif;color:#1a1a1a}
+.rail span{color:#6a5a3a;font-size:12px}
+.rail a{
+  background:#c9a227;color:#1a1a1a;text-decoration:none;
+  font:700 12px Arial;padding:8px 12px;
+}
+.rail a.ghost{background:transparent;border:1px solid #c9a227;color:#5a4a20}
+iframe{position:fixed;inset:0;width:100%;height:100%;border:0;background:#fff}
+noscript .fallback{padding:80px 24px}
+</style>
+</head>
+<body>
+<div class="rail">
+  <div>
+    <b>Pianomanuel</b>
+    <span> · Meta Muse · BETA v12 · 2026-09-19 · public_dns=off</span>
+  </div>
+  <div>
+    <a href="https://www.mentalcanvas.net/p3cpw7wsusj" target="_blank" rel="noopener noreferrer">Open scene</a>
+    <a class="ghost" href="meta.html">Meta</a>
+    <a class="ghost" href="shop.html">Enter shop</a>
+  </div>
+</div>
+<iframe
+  src="https://www.mentalcanvas.net/p3cpw7wsusj"
+  title="Pianomanuel Mental Canvas window"
+  referrerpolicy="no-referrer"
+  allowfullscreen
+  allow="xr-spatial-tracking; fullscreen"></iframe>
+<noscript>
+  <div class="fallback">
+    <p>This home page is the window scene.</p>
+    <p><a href="https://www.mentalcanvas.net/p3cpw7wsusj" rel="noopener noreferrer">mentalcanvas.net/p3cpw7wsusj</a></p>
+    <p><a href="meta.html">Meta</a></p>
+  </div>
+</noscript>
+</body>
+</html>
