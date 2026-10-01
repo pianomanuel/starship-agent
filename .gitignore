@@ -1,0 +1,28 @@
+# 2026-09-26 (PMC-146): keep secrets, sessions, certificates, databases and local-only data out of git.
+.DS_Store
+__pycache__/
+*.pyc
+*.bak-*
+*.bak
+# databases (favorites.db, sessions.db, security.db, MainDB, ...)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite3
+# keys / certificates
+*.key
+*.pem
+*.crt
+*.p12
+*.mobileprovision
+# hub local-only trees
+hub/secure/
+hub/certs/
+hub/mainthing/
+hub/tmp/
+hub/root/site
+# private data
+security/
+site/favorites/
+private-app/

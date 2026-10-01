@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="stylesheet" href="styles.css"/>
+<title>ManuelOps meta</title>
+</head>
+<body>
+<header class="site-header">
+  <div class="shell">
+    <h1>dbo.meta / meta</h1>
+    <p class="lede">Compiled snapshot 2026-09-19. This page is not a live SQL query. <code>public_dns=off</code>.</p>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Window</a>
+      <a href="board.html">Board</a>
+      <a class="ghost" href="shop.html">Shop</a>
+    </nav>
+  </div>
+</header>
+<main class="shell">
+  <div class="card">
+    <p class="note">MSSQL is schema-only until promotion. Load with <code>scripts/migrate_beta.sh</code> into <code>ManuelOps_BETA.sqlite</code> only.</p>
+    <table>
+      <thead><tr><th>key</th><th>value</th></tr></thead>
+      <tbody>
+        <tr><td>name</td><td>ManuelOps</td></tr>
+        <tr><td>parent</td><td>Life Resume — J. Robert Manuel</td></tr>
+        <tr><td>lock</td><td>Major changes require Robert approval</td></tr>
+        <tr><td>engine</td><td>sqlite</td></tr>
+        <tr><td>schema_version</td><td>12</td></tr>
+        <tr><td>compile_date</td><td>2026-09-19</td></tr>
+        <tr><td>beta_flag</td><td>BETA</td></tr>
+        <tr><td>source_of_truth</td><td>github site+schema; Drive workbooks; sqlite=BETA only</td></tr>
+        <tr><td>mssql_status</td><td>schema_only</td></tr>
+        <tr><td>mssql_promoted</td><td>no</td></tr>
+        <tr><td>public_dns</td><td>off</td></tr>
+        <tr><td>site_root</td><td>site/ on GitHub pianomanuel/ManuelOps main</td></tr>
+        <tr><td>canonical_repo</td><td>pianomanuel/ManuelOps</td></tr>
+        <tr><td>archive_repo</td><td>pianomanuel/SQL</td></tr>
+        <tr><td>status</td><td>SEED — not live on pianomanuel.com</td></tr>
+        <tr><td>azure_hosting</td><td>blocked_on_subscription</td></tr>
+        <tr><td>updated</td><td>2026-09-19</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Load: <code>./scripts/migrate_beta.sh</code> · SSMS: <code>schema/011_meta.mssql.sql</code> after <code>010_mssql.sql</code> · then <code>schema/012_meta_sync.sql</code>.</p>
+</main>
+</body>
+</html>

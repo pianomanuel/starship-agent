@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="stylesheet" href="styles.css"/>
+<title>Jira open → Mental Studio</title>
+<style>
+html,body{margin:0;height:100%;overflow:hidden}
+#splash{position:fixed;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0d0f14;padding:1.5rem;text-align:center}
+#splash h1{color:#f7f1e3;margin:0 0 .5rem;font:700 1.5rem/1.2 Georgia,serif}
+#splash p{color:#c9a227;margin:0 0 1.25rem}
+#hud{position:fixed;left:12px;bottom:12px;z-index:2;background:rgba(0,0,0,.72);padding:12px 14px;border:1px solid #c9a227;border-radius:10px;max-width:min(320px,calc(100vw - 24px));backdrop-filter:blur(8px)}
+#hud b{color:#c9a227}
+#hud .row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+#hud .row .btn,#hud .row button{border-radius:999px}
+</style>
+</head>
+<body class="page-dark">
+<div id="splash">
+  <h1>PCS · pianomanuel</h1>
+  <p>Sprint card = Monopoly card. Open the room before the board.</p>
+  <button type="button" class="btn" id="enter">Enter 3D studio</button>
+</div>
+<div id="hud" hidden>
+  <b>Mental Studio</b><br>Drag to look. Export PNG walls for Mental Canvas.
+  <div class="row">
+    <button type="button" class="btn" id="exportMc">Export Mental Canvas PNGs</button>
+    <a class="btn" href="board.html">Monopoly board</a>
+    <a class="btn" href="index.html">Landing</a>
+    <a class="btn" href="https://pianomanuel.atlassian.net/jira/software/projects/PCS/list?jql=project%20%3D%20PCS%20ORDER%20BY%20cf%5B10019%5D%20ASC">Jira PCS</a>
+  </div>
+</div>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+const scene=new THREE.Scene(); scene.background=new THREE.Color(0x1a1a1a);
+const cam=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,0.1,80); cam.position.set(3.2,2.1,7.4);
+const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+renderer.setSize(innerWidth,innerHeight); document.body.appendChild(renderer.domElement);
+const ctl=new OrbitControls(cam,renderer.domElement); ctl.target.set(0,1.4,0); ctl.enableDamping=true;
+scene.add(new THREE.AmbientLight(0xfff4dc,0.8));
+const key=new THREE.DirectionalLight(0xffe6a3,0.9); key.position.set(4,8,6); scene.add(key);
+function wall(title,bg,x,y,z,rx,ry,w=8,h=6){
+  const c=document.createElement('canvas'); c.width=1024; c.height=768;
+  const g=c.getContext('2d'); g.fillStyle=bg; g.fillRect(0,0,1024,768);
+  g.fillStyle='#c9a227'; g.fillRect(0,0,1024,18);
+  g.fillStyle='#f7f1e3'; g.font='bold 72px serif'; g.fillText(title,48,140);
+  const m=new THREE.Mesh(new THREE.PlaneGeometry(w,h), new THREE.MeshStandardMaterial({map:new THREE.CanvasTexture(c),side:THREE.DoubleSide}));
+  m.position.set(x,y,z); m.rotation.set(rx||0,ry||0,0); scene.add(m);
+}
+wall('STUDIO','#2a2218',0,2.2,-5,0,0,10,8);
+wall('MUSIC','#1c2a22',-5,2.2,0,0,Math.PI/2);
+wall('ART','#1c2430',5,2.2,0,0,-Math.PI/2);
+wall('SKY','#3a5570',0,2.2,6,0,Math.PI,10,8);
+wall('LIVING','#f7f1e3',0,0,0,-Math.PI/2,0,10,10);
+[['TRK-016','PCS'],['TRK-001','Gloria'],['TRK-008','Kelli']].forEach((t,i)=>{
+  const c=document.createElement('canvas'); c.width=512;c.height=320;
+  const g=c.getContext('2d'); g.fillStyle='#fffdf8'; g.fillRect(0,0,512,320);
+  g.fillStyle='#c9a227'; g.fillRect(0,0,512,28);
+  g.fillStyle='#1a1a1a'; g.font='bold 36px serif'; g.fillText(t[1],24,90);
+  g.font='22px sans-serif'; g.fillText(t[0]+' · 1 call',24,140);
+  const m=new THREE.Mesh(new THREE.PlaneGeometry(1.6,1), new THREE.MeshStandardMaterial({map:new THREE.CanvasTexture(c)}));
+  const a=i/3*Math.PI*2; m.position.set(Math.cos(a)*2.2,1.2,Math.sin(a)*2.2); scene.add(m);
+});
+document.getElementById('enter').onclick=()=>{splash.hidden=true;hud.hidden=false;};
+function layer(title,bg){const c=document.createElement('canvas');c.width=1600;c.height=1000;const g=c.getContext('2d');g.fillStyle=bg;g.fillRect(0,0,1600,1000);g.fillStyle='#c9a227';g.fillRect(0,0,1600,24);g.fillStyle='#f7f1e3';g.font='bold 84px serif';g.fillText(title,64,180);g.fillStyle='#c9a227';g.font='28px sans-serif';g.fillText('Sprint = Monopoly · Joseph Robert Manuel, IV',64,240);return c.toDataURL('image/png');}
+function dl(n,u){const a=document.createElement('a');a.href=u;a.download=n;a.click();}
+document.getElementById('exportMc').onclick=()=>{dl('01_studio_back.png',layer('STUDIO','#2a2218'));setTimeout(()=>dl('02_music_left.png',layer('MUSIC','#1c2a22')),200);setTimeout(()=>dl('03_art_right.png',layer('ART','#1c2430')),400);setTimeout(()=>dl('04_living_floor.png',layer('LIVING','#f7f1e3')),600);setTimeout(()=>dl('05_sky_front.png',layer('SKY','#3a5570')),800);setTimeout(()=>{renderer.render(scene,cam);dl('06_live_camera_3d.png',renderer.domElement.toDataURL('image/png'));},1000);};
+addEventListener('resize',()=>{cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);});
+(function loop(){requestAnimationFrame(loop);ctl.update();renderer.render(scene,cam);})();
+</script>
+</body>
+</html>

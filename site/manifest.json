@@ -1,0 +1,10 @@
+{
+  "name": "Pianomanuel",
+  "short_name": "Pianomanuel",
+  "start_url": "./app.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f1e3",
+  "theme_color": "#c9a227",
+  "description": "Pianomanuel hub. Window home + week board. Staff compile."
+}
