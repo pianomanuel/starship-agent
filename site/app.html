@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="referrer" content="no-referrer"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Pianomanuel"/>
+<meta name="theme-color" content="#c9a227"/>
+<link rel="manifest" href="manifest.json"/>
+<title>Pianomanuel · App</title>
+<style>
+:root{--navy:#1a1a1a;--gold:#c9a227;--cream:#f7f1e3;--line:#e2d8c4}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--cream);color:#2b2b2b;font:16px/1.45 Segoe UI,Arial,sans-serif}
+header{background:var(--navy);color:#fff;padding:16px 18px}
+header p{margin:6px 0 0;color:#d9c78a;font-size:13px}
+nav{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px;background:#fff;border-bottom:1px solid var(--line)}
+nav a{background:var(--gold);color:#1a1a1a;text-decoration:none;font:700 12px Arial;padding:8px 10px}
+.wrap{max-width:720px;margin:0 auto;padding:18px 16px 64px}
+.day{background:#fff;border:1px solid var(--line);padding:12px 14px;margin:0 0 10px}
+.day b{display:block;font-size:14px}
+.day span{color:#6a6a6a;font-size:13px}
+.note{color:#6a6a6a;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Pianomanuel app</h1>
+  <p>Week of 14–20 Sep 2026 · same product as the window · staff only</p>
+</header>
+<nav>
+  <a href="index.html">Window</a>
+  <a href="shop.html">Shop</a>
+  <a href="board.html">Board</a>
+  <a href="ios.html">iOS</a>
+  <a href="bookmarks.html">Links</a>
+</nav>
+<div class="wrap">
+  <p class="note">This is the web app chrome. Install path is Safari → Share → Add to Home Screen. Public DNS stays off. Sign in with Apple is next house (#8).</p>
+  <div class="day"><b>Mon 14</b><span>Shell exists. You are here.</span></div>
+  <div class="day"><b>Tue 15</b><span>PWA: manifest + service worker cache the shell, not Mental Canvas.</span></div>
+  <div class="day"><b>Wed 16</b><span>Every button on this page stays inside compiled site/.</span></div>
+  <div class="day"><b>Thu 17</b><span>iOS wrapper source in ios/PianomanuelHub. Open in Xcode. No store upload.</span></div>
+  <div class="day"><b>Fri 18</b><span>Security pass. If a page grew a password, it failed.</span></div>
+  <div class="day"><b>Sat 19</b><span>Test checkout in /tmp, then delete it.</span></div>
+  <div class="day"><b>Sun 20</b><span>Hold: App Store, public HTTPS, SIWA.</span></div>
+</div>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js").catch(function(){});
+}
+</script>
+</body>
+</html>

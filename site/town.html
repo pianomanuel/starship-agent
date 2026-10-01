@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Pianomanuel · Town · TRK-017</title>
+<style>
+:root{--navy:#1a1a1a;--gold:#c9a227;--cream:#f7f1e3;--line:#e2d8c4;--ok:#e7f0e4;--hold:#fff3c4}
+body{margin:0;font:16px/1.45 Segoe UI,Arial,sans-serif;background:var(--cream);color:#2b2b2b}
+header{background:var(--navy);color:#fff;padding:16px 18px}
+header p{color:#d9c78a;margin:6px 0 0;font-size:13px}
+nav a{display:inline-block;margin:8px 8px 0 0;background:var(--gold);color:#1a1a1a;text-decoration:none;padding:8px 10px;font:700 12px Arial}
+.wrap{max-width:900px;margin:0 auto;padding:18px 16px 48px}
+.houses{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+@media(max-width:700px){.houses{grid-template-columns:1fr}}
+.house{background:#fff;border:1px solid var(--line)}
+.deed{height:10px;background:#1e4a8b}
+.house h2{margin:12px 16px 4px;font-size:18px}
+.house p{margin:0 16px 14px;color:#5a4a20;font-size:14px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:13px;margin-top:12px}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--navy);color:#f7f1e3}
+.ok{background:var(--ok)}.hold{background:var(--hold)}
+a{color:#0b4f8a}
+footer{color:#6a6a6a;font-size:12px;margin-top:16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Town · TRK-017</h1>
+  <p>One deed. Two houses. Every card has a named database. Normalize, then integrate.</p>
+  <nav>
+    <a href="index.html">Window</a>
+    <a href="shop.html">Shop</a>
+    <a href="bookmarks.html">Links</a>
+    <a href="beta-environments.html">BETA 1.02</a>
+    <a href="https://github.com/pianomanuel/ManuelOps/issues/28">Issue #28</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="houses">
+    <section class="house" id="import">
+      <div class="deed"></div>
+      <h2>Import House</h2>
+      <p>Hopper in. MASTER, Seed, CSV, evidence names. Deny-list = LOCK.md. Nothing lands on prod sqlite until sign-off.</p>
+    </section>
+    <section class="house" id="export">
+      <div class="deed"></div>
+      <h2>Export House</h2>
+      <p>Hopper out. Transcript, tagged PDF, Gmail pack, Drive test folder. No encryption unless asked.</p>
+    </section>
+  </div>
+  <p>Shop is the repo. Road is Crossroads. Neither is a second Jira roof.</p>
+  <table>
+    <tr><th>House</th><th>id</th><th>Job</th></tr>
+    <tr class="ok"><td>Import</td><td>HS-IMP</td><td>Receive · name · quarantine twins</td></tr>
+    <tr class="ok"><td>Export</td><td>HS-EXP</td><td>Ship packet · no cipher</td></tr>
+    <tr><td>Shop</td><td>HS-SHOP</td><td>Schema + issues</td></tr>
+    <tr><td>Road</td><td>HS-ROAD</td><td>Crossroads product only</td></tr>
+  </table>
+  <p>Register: <code>ManuelOps_DB_TOWN_017_Register_2026-09-12.xlsx</code> — 28 named databases, one per GitHub issue. Named is not cloned.</p>
+  <footer>Pianomanuel · TRK-017 · 2026-09-12 · no passwords on this page</footer>
+</div>
+</body>
+</html>
