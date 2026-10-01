@@ -1,0 +1,138 @@
+:root {
+  --ink: #0a0b0e; --elev: #12141a; --card: #181b22;
+  --gold: #c9a84c; --gold-dim: #8a7333; --cream: #f3ead7; --muted: #9a9386;
+  --line: rgba(255,255,255,.08);
+  --mono-brown: #8b4513; --mono-ltblue: #cce0f5; --mono-pink: #ffc0cb;
+  --mono-orange: #ffa500; --mono-red: #e74c3c; --mono-yellow: #f1c40f;
+  --mono-green: #27ae60; --mono-blue: #3498db; --mono-dkblue: #1a5276;
+}
+html, body { background: var(--ink); color: var(--cream); margin: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+  min-height: 100dvh; -webkit-font-smoothing: antialiased;
+  background: linear-gradient(180deg, #1c1f28 0%, #12141a 28%, #0a0b0e 100%);
+}
+.glass {
+  background: rgba(24,27,34,.72);
+  backdrop-filter: saturate(1.4) blur(18px);
+  -webkit-backdrop-filter: saturate(1.4) blur(18px);
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 32px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06);
+}
+.mark { font-family: ui-serif, "Iowan Old Style", Palatino, serif; letter-spacing: .02em; }
+a { color: #e8d7a0; text-decoration: none; }
+a:hover { color: #fff; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+/* Monopoly property card */
+.prop-card {
+  display: flex; flex-direction: column;
+  border-radius: 6px;
+  background: #f7f1e3;
+  color: #1a1208;
+  border: 3px solid #1a1208;
+  box-shadow: 0 10px 28px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.35);
+  overflow: hidden;
+  min-height: 210px;
+  transition: transform .15s ease, box-shadow .15s ease;
+  position: relative;
+}
+.prop-card:hover { transform: translateY(-4px) rotate(-.4deg); box-shadow: 0 16px 36px rgba(0,0,0,.65); }
+.prop-band {
+  height: 52px; border-bottom: 3px solid #1a1208;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  font-size: 13px; color: #fff; text-shadow: 0 1px 0 rgba(0,0,0,.35);
+}
+.prop-body { padding: 14px 14px 16px; flex: 1; display: flex; flex-direction: column; }
+.prop-title { font-family: ui-serif, Palatino, serif; font-size: 1.15rem; font-weight: 700; margin: 0 0 6px; color: #1a1208; }
+.prop-desc { font-size: 12px; line-height: 1.45; color: #4a3b28; flex: 1; }
+.prop-rent {
+  margin-top: 12px; border-top: 2px dashed #1a1208; padding-top: 8px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+}
+.prop-rent span.price { color: #8b4513; }
+.band-brown { background: #955436; }
+.band-ltblue { background: #aae0fa; color: #123!important; text-shadow: none; }
+.band-pink { background: #d93a96; }
+.band-orange { background: #f7941d; }
+.band-red { background: #ed1b24; }
+.band-yellow { background: #fef200; color: #123!important; text-shadow: none; }
+.band-green { background: #1fb25a; }
+.band-dkblue { background: #0072bb; }
+.band-rail { background: #111; }
+.band-util { background: #c9a84c; color: #111!important; text-shadow: none; }
+
+.chart-rail {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;
+}
+.kpi {
+  background: rgba(10,11,14,.55); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;
+}
+.kpi .lbl { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.kpi .val { font-size: 1.6rem; color: var(--gold); font-family: ui-serif, Palatino, serif; margin-top: 4px; }
+.bar { height: 8px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; margin-top: 8px; }
+.bar > i { display: block; height: 100%; background: linear-gradient(90deg, var(--gold-dim), var(--gold)); border-radius: 999px; }
+
+/* Apple-style login */
+.dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.dot-r { background: #ff5f57; } .dot-y { background: #febc2e; } .dot-g { background: #28c840; }
+.login-body {
+  min-height: 100dvh;
+  display: flex; align-items: center; justify-content: center;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(201,168,76,.12), transparent 55%),
+    linear-gradient(180deg, #1c1f28 0%, #12141a 40%, #0a0b0e 100%);
+}
+.login-wrap { width: min(420px, calc(100vw - 32px)); padding: 24px 0 48px; }
+.login-card { border-radius: 22px; padding: 28px 28px 32px; text-align: center; }
+.login-lights { display: flex; gap: 8px; margin-bottom: 18px; }
+.login-kicker { margin: 0; letter-spacing: .18em; text-transform: uppercase; font-size: 11px; color: var(--gold); }
+.login-title { margin: 8px 0 4px; font-size: 1.7rem; }
+.login-sub { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+.login-avatar {
+  width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 10px;
+  display: grid; place-items: center;
+  background: linear-gradient(180deg, #3a3f4d, #1c1f28);
+  border: 1px solid var(--line); color: var(--cream);
+  font-weight: 600; letter-spacing: .04em; font-size: 1.15rem;
+}
+.login-name { margin: 0 0 18px; font-size: 15px; color: var(--cream); }
+.login-form { text-align: left; }
+.login-label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.login-input {
+  width: 100%; box-sizing: border-box;
+  border-radius: 12px; border: 1px solid var(--line);
+  background: rgba(10,11,14,.55); color: var(--cream);
+  padding: 12px 14px; font-size: 16px;
+  outline: none; font-family: inherit;
+}
+.login-input:focus { border-color: #0a84ff; box-shadow: 0 0 0 4px rgba(10,132,255,.22); }
+.login-btn {
+  width: 100%; margin-top: 16px; border: 0; border-radius: 12px;
+  padding: 12px 16px; font-size: 16px; font-weight: 600;
+  background: #0a84ff; color: #fff; cursor: pointer; font-family: inherit;
+}
+.login-btn:disabled { opacity: .55; cursor: default; }
+.login-btn:hover:not(:disabled) { background: #0077ed; }
+.login-err { color: #ff6b6b; font-size: 13px; margin: 12px 0 0; }
+.login-hint { color: var(--muted); font-size: 11px; margin: 16px 0 0; text-align: center; }
+
+/* 2026-09-26 · SpaceX-style login (Robert). Backup: hub.css.bak-2026-09-26-spacex
+   Inter (SIL OFL) self-hosted = closest free match for reMarkable's proprietary reMarkableSans. */
+@font-face{font-family:"Inter";font-style:normal;font-weight:300 800;font-display:swap;src:url("fonts/Inter-Variable-latin.woff2") format("woff2")}
+body.login-body{background:#000!important;font-family:"Inter",reMarkableSans,Helvetica,Arial,sans-serif!important;color:#e6e6e6;letter-spacing:.01em}
+.login-body .login-card,.login-body .login-card.glass{background:transparent!important;border:1px solid rgba(255,255,255,.16)!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;padding:40px 36px 36px}
+.login-body .login-lights{display:none}
+.login-body .login-kicker{color:#8a8a8a;letter-spacing:.3em;font-weight:500;font-size:10.5px}
+.login-body .login-title{font-family:"Inter",Helvetica,sans-serif!important;font-weight:300;text-transform:uppercase;letter-spacing:.32em;font-size:1.25rem;color:#fff;margin:14px 0 6px}
+.login-body .login-sub{color:#8a8a8a;text-transform:uppercase;letter-spacing:.2em;font-size:10.5px;margin-bottom:28px}
+.login-body .login-avatar{background:transparent!important;border:1px solid rgba(255,255,255,.55)!important;color:#fff!important;font-weight:300;letter-spacing:.12em;box-shadow:none!important}
+.login-body .login-name{color:#fff;text-transform:uppercase;letter-spacing:.22em;font-size:12px;font-weight:500}
+.login-body .login-label{color:#8a8a8a;text-transform:uppercase;letter-spacing:.2em;font-size:10px}
+.login-body .login-input{background:#000!important;color:#fff!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.35)!important;border-radius:0!important;font-family:inherit;padding-left:0}
+.login-body .login-input:focus{border-bottom-color:#c9a227!important;box-shadow:none!important;outline:none}
+.login-body .login-btn{background:transparent!important;color:#fff!important;border:1px solid #fff!important;border-radius:0!important;text-transform:uppercase;letter-spacing:.26em;font-size:11px;font-weight:500;font-family:inherit}
+.login-body .login-btn:hover:not(:disabled){background:#fff!important;color:#000!important}
+.login-body .login-hint{color:#6a6a6a;letter-spacing:.06em}

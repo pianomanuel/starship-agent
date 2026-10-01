@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#0a0b0e" />
+  <title>pianomanel.com — Hub</title>
+  <link rel="stylesheet" href="css/hub.css" />
+  <style>
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 16px 16px 48px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    header.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+    .dot-r { background: #ff5f57; } .dot-y { background: #febc2e; } .dot-g { background: #28c840; }
+    .sub { color: var(--muted); font-size: 12px; }
+    .protect { color: var(--gold); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top glass" style="border-radius:16px;padding:14px 18px;">
+      <div style="display:flex;align-items:center;gap:12px;min-width:0;">
+        <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+        <div>
+          <h1 class="mark" style="margin:0;font-size:1.35rem;">pianomanel.com</h1>
+          <p class="sub" style="margin:2px 0 0;">J. Robert Manuel · Monopoly hub · dark ops</p>
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <p class="protect">Protect · Spitfire · Gloria · Vocalis</p>
+        <p class="sub" id="stamp">local static</p>
+      </div>
+    </header>
+
+    <section class="glass" style="border-radius:16px;padding:14px 16px;margin-bottom:18px;">
+      <p class="sub" style="margin:0 0 10px;letter-spacing:.14em;text-transform:uppercase;">TestRail / JIRA style · live counts</p>
+      <div class="chart-rail" id="kpis">
+        <div class="kpi"><div class="lbl">Modules</div><div class="val">11</div></div>
+        <div class="kpi"><div class="lbl">Sheet works</div><div class="val" id="kpi-scores">—</div><div class="bar"><i id="bar-scores" style="width:40%"></i></div></div>
+        <div class="kpi"><div class="lbl">Issues</div><div class="val" id="kpi-issues">—</div></div>
+        <div class="kpi"><div class="lbl">MusicXML</div><div class="val" id="kpi-xml">—</div></div>
+      </div>
+    </section>
+
+    <h2 class="mark" style="font-size:1rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin:0 0 12px;">Property board</h2>
+    <div class="grid" id="board">
+      <a class="prop-card" href="issues.html">
+        <div class="prop-band band-red">Significant Issues</div>
+        <div class="prop-body">
+          <h3 class="prop-title">Boardwalk</h3>
+          <p class="prop-desc">Severity board · maintenance hidden · TestRail feel.</p>
+          <div class="prop-rent"><span>Module</span><span class="price">Issues</span></div>
+        </div>
+      </a>
+      <a class="prop-card" href="modules/ops.html">
+        <div class="prop-band band-dkblue">Ops</div>
+        <div class="prop-body">
+          <h3 class="prop-title">Park Place</h3>
+          <p class="prop-desc">Devices, sync packs, launchd watch, MainDB spine.</p>
+          <div class="prop-rent"><span>Module</span><span class="price">Ops</span></div>
+        </div>
+      </a>
+      <a class="prop-card" href="modules/sheet-music.html">
+        <div class="prop-band band-green">Sheet Music</div>
+        <div class="prop-body">
+          <h3 class="prop-title">Pacific Ave</h3>
+          <p class="prop-desc">Unique scores · Adobe / Newzik · MusicXML ready.</p>
+          <div class="prop-rent"><span>Module</span><span class="price">Scores</span></div>
+        </div>
+      </a>
+      <a class="prop-card" href="modules/crossref.html">
+        <div class="prop-band band-yellow">Crossref</div>
+        <div class="prop-body">
+          <h3 class="prop-title">Illinois Ave</h3>
+          <p class="prop-desc">crossref_index.db links across files, tags, bookmarks.</p>
+          <div class="prop-rent"><span>Module</span><span class="price">Xref</span></div>
+        </div>
+      </a>
+      <a class="prop-card" href="modules/bookmarks.html">
+        <div class="prop-band band-orange">Bookmarks</div>
+        <div class="prop-body">
+          <h3 class="prop-title">New York Ave</h3>
+          <p class="prop-desc">bookmarks_main.db · curated web + local anchors.</p>
+          <div class="prop-rent"><span>Module</span><span class="price">Marks</span></div>
+        </div>
+      </a>
+      <a class="prop-card" href="modules/photos.html">
+        <div class="prop-band band-pink">Photos</div>
+        <div class="prop-body">
+          <h3 class="prop-title">St. Charles</h3>
+          <p class="prop-desc">photos_main.db · albums &amp; protect Vocalis stills.</p>
+          <div class="prop-rent"><span>Module</span><span class="price">Photos</span></div>
+        </div>
+      </a>
+      <a class="prop-card" href="modules/circles.html">
+        <div class="prop-band band-ltblue">Circles</div>
+        <div class="prop-body">
+          <h3 class="prop-title">Oriental Ave</h3>
+          <p class="prop-desc">People / rehearsal circles · soft graph later.</p>
+          <div class="prop-rent"><span>Module</span><span class="price">People</span></div>
+        </div>
+      </a>
+
+      <a class="prop-card" href="https://127.0.0.1:8443/" title="Main Thing HTTPS API">
+        <div class="prop-band band-util">Main Thing</div>
+        <div class="prop-body">
+          <h3 class="prop-title">Electric Company</h3>
+          <p class="prop-desc">Single-point HTTPS · tags · photos · contacts · results · Bearer auth.</p>
+          <div class="prop-rent"><span>Module</span><span class="price">:8443</span></div>
+        </div>
+      </a>
+
+      <a class="prop-card" href="ucc-react/index.html">
+        <div class="prop-band band-rail">Mac UCC</div>
+        <div class="prop-body">
+          <h3 class="prop-title">Reading Railroad</h3>
+          <p class="prop-desc">React Control Center · drives incl. LACie 2TB TM · dry scans · Monopoly board.</p>
+          <div class="prop-rent"><span>Module</span><span class="price">UCC React</span></div>
+        </div>
+      </a>
+
+      <a class="prop-card" href="modules/nsfw.html">
+        <div class="prop-band band-pink">Private Vault</div>
+        <div class="prop-body">
+          <h3 class="prop-title">Ventnor Ave</h3>
+          <p class="prop-desc">NSFW / adult attach point · gated · Secure/NSFW-Vault · #NSFW.</p>
+          <div class="prop-rent"><span>Module</span><span class="price">Private</span></div>
+        </div>
+      </a>
+
+      <a class="prop-card" href="modules/ucc.html">
+        <div class="prop-band band-brown">UCC / Records</div>
+        <div class="prop-body">
+          <h3 class="prop-title">Mediterranean</h3>
+          <p class="prop-desc">Public records + UCC landings · civic only.</p>
+          <div class="prop-rent"><span>Module</span><span class="price">UCC</span></div>
+        </div>
+      </a>
+    </div>
+
+    <footer class="sub" style="margin-top:28px;text-align:center;">
+      MainDB → Main Thing HTTPS :8443 → static Vite-ready shell ·
+      <a href="ARCHITECTURE.md">ARCHITECTURE.md</a> ·
+      <a href="Unified-Control-Single-Site.html">Unified Control</a>
+    </footer>
+  </div>
+  <script>
+    (async () => {
+      try {
+        const sm = await (await fetch("data/sheet_music.json", {cache:"no-store"})).json();
+        document.getElementById("kpi-scores").textContent = sm.count ?? (sm.works||[]).length;
+        const xml = (sm.works||[]).filter(w => w.musicxml_path).length;
+        document.getElementById("kpi-xml").textContent = xml;
+        document.getElementById("bar-scores").style.width = Math.min(100, (sm.count||0)*8) + "%";
+        document.getElementById("stamp").textContent = (sm.generated_at || "").replace("T"," ").replace("Z"," UTC");
+      } catch(e) {}
+      try {
+        const r = await (await fetch("data/report.json", {cache:"no-store"})).json();
+        const n = (r.counts && r.counts.significant_issues) || (r.significant_issues||[]).length || 0;
+        document.getElementById("kpi-issues").textContent = n;
+      } catch(e) { document.getElementById("kpi-issues").textContent = "—"; }
+    })();
+  </script>
+</body>
+</html>

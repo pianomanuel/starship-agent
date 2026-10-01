@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="referrer" content="no-referrer"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://www.mentalcanvas.net; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="Pianomanuel"/>
+<meta name="theme-color" content="#000000"/>
+<link rel="manifest" href="manifest.json"/>
+<link rel="stylesheet" href="styles.css?v=20260926s"/>
+<title>Starship Manuel · Bridge · Pianomanuel</title>
+<!-- Bridge landing, 2026-09-26 (SpaceX restyle 18:4x ET, backup index.html.bak-2026-09-26-spacex). Previous "window scene" page: index.html.bak-2026-09-26-bridge -->
+<style>
+:root{--hull:#000;--line:rgba(255,255,255,.16);--line-hi:rgba(255,255,255,.55);--gold:#c9a227;--navy:#1e3a6e;--white:#fff;--ink:#e6e6e6;--dim:#8a8a8a;--ok:#9fd8b0;--amber:#d9b45a}
+html,body{background:#000}
+body.bridge{margin:0;min-height:100vh;color:var(--ink);font:400 15px/1.5 "Inter",reMarkableSans,Helvetica,Arial,sans-serif;background:#000;letter-spacing:.01em}
+.bridge a{color:inherit;text-decoration:none}
+.lbl{text-transform:uppercase;letter-spacing:.24em;font-size:10.5px;font-weight:500}
+.bar{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:flex-end;justify-content:space-between;padding:2.2rem 3rem 1.4rem;border-bottom:1px solid var(--line)}
+.bar .ship{font-weight:300;font-size:1.9rem;color:#fff;letter-spacing:.42em;text-transform:uppercase;line-height:1.1}
+.bar .ship small{display:block;margin-top:.7rem;font-size:10.5px;font-weight:500;color:var(--dim);letter-spacing:.26em}
+.bar .chips{display:flex;flex-wrap:wrap;gap:1.6rem}
+.bchip{font-size:10.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.22em;font-weight:500}
+.bchip b{color:#fff;font-weight:500}
+.bchip.warn b{color:var(--gold)}
+.deck{display:grid;gap:2.2rem;padding:2.4rem 3rem 2.4rem;max-width:1560px;margin:0 auto;
+ grid-template-columns:minmax(220px,1fr) minmax(0,2.6fr) minmax(220px,1fr);grid-template-areas:"port view star" "console console console"}
+.port{grid-area:port}.star{grid-area:star}.view{grid-area:view}.console{grid-area:console}
+.bcol{display:flex;flex-direction:column;gap:2rem}
+.station{border-top:1px solid var(--line-hi);padding:.9rem 0 0;position:relative}
+.station::before{content:"";position:absolute;left:0;top:-1px;width:28px;height:1px;background:var(--c,var(--gold))}
+.station h2{margin:0 0 .35rem;font:500 10.5px/1.3 "Inter",Helvetica,sans-serif;color:#fff;letter-spacing:.26em;text-transform:uppercase}
+.station p{margin:0 0 .8rem;color:var(--dim);font-size:12.5px;font-weight:300}
+.keys{display:flex;flex-direction:column;gap:0}
+.keys a{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--line);color:var(--ink);font-size:12px;text-transform:uppercase;letter-spacing:.16em;transition:color .15s,border-color .15s}
+.keys a::after{content:"→";color:var(--dim);transition:transform .15s,color .15s}
+.keys a:hover,.keys a:focus{color:#fff;border-bottom-color:var(--line-hi);outline:none}
+.keys a:hover::after,.keys a:focus::after{color:var(--gold);transform:translateX(3px)}
+.view{display:flex;flex-direction:column;gap:1rem}
+.screen{position:relative;border:1px solid var(--line);padding:0}
+.screen::before,.screen::after{content:"";position:absolute;width:18px;height:18px;border:1px solid #fff;pointer-events:none}
+.screen::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.screen::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.screen iframe{display:block;width:100%;height:min(60vh,600px);border:0;background:#000}
+.screen .label{position:absolute;top:-1.9rem;left:0;color:var(--dim);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:500}
+.viewbar{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;padding-top:.4rem}
+.viewbar a{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#fff;padding:.7rem 1.4rem;border:1px solid var(--line-hi);transition:background .15s,color .15s}
+.viewbar a:hover{background:#fff;color:#000}
+.console{display:grid;gap:2.2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));border-top:1px solid var(--line);padding-top:2rem}
+.readout{font-size:12.5px}
+.readout h2{margin:0 0 .9rem;font:500 10.5px/1 "Inter",Helvetica,sans-serif;color:#fff;letter-spacing:.26em;text-transform:uppercase}
+.readout dl{display:grid;grid-template-columns:auto 1fr;gap:.45rem 1.4rem;margin:0}
+.readout dt{color:var(--dim);text-transform:uppercase;letter-spacing:.16em;font-size:10.5px;padding-top:.15rem}
+.readout dd{margin:0;color:#fff;font-variant-numeric:tabular-nums}
+.lamp{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:.5rem;background:var(--dim);vertical-align:middle}
+.lamp.ok{background:var(--ok)} .lamp.lhold{background:var(--amber)} .lamp.off{background:#d96a5f}
+.phases{display:flex;gap:0;margin:.2rem 0 .9rem;border:1px solid var(--line)}
+.phases span{flex:1 1 0;text-align:center;padding:.6rem .2rem;border-right:1px solid var(--line);font-size:9.5px;color:var(--dim);letter-spacing:.16em;text-transform:uppercase}
+.phases span:last-child{border-right:0}
+.phases span b{display:block;color:#fff;font-size:15px;font-weight:300;letter-spacing:0;margin-bottom:.15rem}
+.phases span.lhold{color:var(--gold)} .phases span.lhold b{color:var(--gold)}
+.foot{text-align:center;color:var(--dim);font-size:10px;padding:1rem 1rem 2.4rem;letter-spacing:.26em;text-transform:uppercase}
+@media (max-width:980px){.bar,.deck{padding-left:1.4rem;padding-right:1.4rem}.deck{grid-template-columns:1fr;grid-template-areas:"view" "port" "star" "console"}.screen iframe{height:46vh}.bar .ship{font-size:1.4rem;letter-spacing:.3em}}
+</style>
+</head>
+<body class="bridge">
+<header class="bar" role="banner">
+  <div class="ship">Starship Manuel<small>Bridge · Captain J. Robert Manuel, IV · Pianomanuel · Meta Muse · BETA v12</small></div>
+  <div class="bchips">
+    <span class="bchip warn">release gate <b>PUBLIC_DNS=off</b></span>
+    <span class="bchip">not for public use</span>
+    <span class="bchip">living board · <b>daily reset</b></span>
+    <span class="bchip">stardate <b id="sd">—</b></span>
+  </div>
+</header>
+
+<main class="deck">
+  <!-- Port stations -->
+  <section class="bcol port" aria-label="Port stations">
+    <div class="station" style="--c:var(--gold)">
+      <h2>Captain's Chair</h2>
+      <p>Captain's word. Nothing destructive without the Captain's tap.</p>
+      <div class="keys">
+        <a href="resume/">My Resume</a>
+        <a href="resume/life.html">Life Resume</a>
+        <a href="resume/interview-music.html">Interview · Music</a>
+        <a href="resume/interview-teaching.html">Interview · Teaching</a>
+        <a href="resume/interview-sqa-vv.html">Interview · SQA/V&amp;V</a>
+      </div>
+    </div>
+    <div class="station" style="--c:#c792ea">
+      <h2>Counselor</h2>
+      <p>The right-brain room. Resets at dawn.</p>
+      <div class="keys">
+        <a href="meta.html">Meta</a>
+        <a href="crossroads.html">Crossroads</a>
+        <a href="jira-open-3d.html">Mental Studio</a>
+      </div>
+    </div>
+    <div class="station" style="--c:var(--cyan)">
+      <h2>Design · Intelligent Design</h2>
+      <p>Phase 1. Shape it before it is built.</p>
+      <div class="keys">
+        <a href="https://www.mentalcanvas.net/p3cpw7wsusj" target="_blank" rel="noopener noreferrer">Open scene</a>
+        <a href="ios.html">iOS</a>
+        <a href="app.html">App</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Viewscreen -->
+  <section class="view" aria-label="Main viewscreen">
+    <div class="screen">
+      <span class="label">Main viewscreen · Mental Canvas window</span>
+      <iframe src="https://www.mentalcanvas.net/p3cpw7wsusj" title="Pianomanuel Mental Canvas window" referrerpolicy="no-referrer" allowfullscreen allow="xr-spatial-tracking; fullscreen"></iframe>
+    </div>
+    <div class="viewbar">
+      <a href="https://www.mentalcanvas.net/p3cpw7wsusj" target="_blank" rel="noopener noreferrer">Open scene full screen</a>
+      <a href="board.html">On screen: Living board</a>
+      <a href="town.html">Town</a>
+      <a href="shop.html">Enter shop</a>
+    </div>
+  </section>
+
+  <!-- Starboard stations -->
+  <section class="bcol star" aria-label="Starboard stations">
+    <div class="station" style="--c:var(--green)">
+      <h2>The Bench</h2>
+      <p>Phase 3. The Bench verifies. SCORE | BENCH.</p>
+      <div class="keys">
+        <a href="board.html">Spine Board</a>
+        <a href="sqa-environment.html">SQA environment</a>
+        <a href="pcs-dashboard.html">PCS + GitHub</a>
+      </div>
+    </div>
+    <div class="station" style="--c:var(--amber)">
+      <h2>Hands · Engineering</h2>
+      <p>Phase 2. Hands build.</p>
+      <div class="keys">
+        <a href="https://pianomanuel.com:8443/">Main Thing :8443</a>
+        <a href="https://pianomanuel.com:8443/health">Main Thing health</a>
+        <a href="beta-environments.html">Services · BETA envs</a>
+        <a href="main.html">main</a>
+      </div>
+    </div>
+    <div class="station" style="--c:#7fa7ff">
+      <h2>Comms</h2>
+      <p>Number One keeps the Captain's Log.</p>
+      <div class="keys">
+        <a href="https://pianomanuel.atlassian.net/jira/software/projects/PMC/boards/37" target="_blank" rel="noopener noreferrer">Jira · PMC board 37</a>
+        <a href="https://pianomanuel.atlassian.net/browse/PMC-134" target="_blank" rel="noopener noreferrer">Captain's Log</a>
+        <a href="https://github.com/pianomanuel/ManuelOps" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lower console -->
+  <section class="console" aria-label="Lower console">
+    <div class="readout" aria-live="polite">
+      <h2>● STATUS READOUT</h2>
+      <dl>
+        <dt>Ship clock</dt><dd id="clock">—</dd>
+        <dt>Sentinel</dt><dd><span class="lamp" id="sentLamp"></span><span id="sent">checking…</span></dd>
+        <dt>Viewscreen</dt><dd><span class="lamp ok"></span>Mental Canvas linked</dd>
+        <dt>Release gate</dt><dd><span class="lamp lhold"></span>PUBLIC_DNS=off · Hold</dd>
+        <dt>Build</dt><dd>BETA v12 · bridge 2026-09-26</dd>
+      </dl>
+    </div>
+    <div class="readout">
+      <h2>● LIFECYCLE</h2>
+      <div class="phases">
+        <span><b>0</b>Imagine</span><span><b>1</b>Design</span><span><b>2</b>Build</span><span><b>3</b>Verify</span><span><b>4</b>Release</span><span class="lhold"><b>▮▮</b>Hold</span>
+      </div>
+      <p style="margin:0;color:var(--dim);font-size:12px">Release on the Captain's word. Hold is a valid state.</p>
+    </div>
+    <div class="station" style="--c:var(--gold-soft)">
+      <h2>Stores · Favorites</h2>
+      <p>Favorites and links database, bookmarks and the protected import.</p>
+      <div class="keys">
+        <a href="bookmark-manager.html">Bookmark Manager</a>
+        <a href="favorites/Favorites.html">Favorites</a>
+        <a href="bookmarks.html">BETA links</a>
+        <a href="shop.html">Shop</a>
+      </div>
+    </div>
+  </section>
+</main>
+<p class="foot">© 2026 Joseph Robert Manuel, IV · Starship Manuel · private bridge · dark by default</p>
+<noscript><p class="foot">Status readout needs scripts. All stations work without them.</p></noscript>
+<script src="bridge.js?v=20260926s"></script>
+</body>
+</html>

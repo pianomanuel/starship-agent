@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="referrer" content="no-referrer"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="theme-color" content="#000000"/>
+<link rel="stylesheet" href="styles.css?v=20260926s"/>
+<title>Bookmark Manager · Starship Manuel</title>
+<!-- 2026-09-26. Data: favorites.db (MainDB) via sign-in-protected /api/links. Delete = soft archive. -->
+<style>
+body{background:#000;margin:0}
+.bm{max-width:1280px;margin:0 auto;padding:2.2rem 3rem 3rem}
+.bm header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;border-bottom:1px solid rgba(255,255,255,.16);padding-bottom:1.2rem}
+.bm h1{font-size:1.5rem;margin:0;letter-spacing:.34em;font-weight:300}
+.bm .sub{color:#8a8a8a;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;margin-top:.6rem}
+.bm nav a{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;margin-left:1.6rem;color:#e6e6e6}
+.bm nav a:hover{color:#c9a227}
+.counts{display:flex;gap:2.4rem;margin:1.6rem 0 1.2rem;flex-wrap:wrap}
+.counts div{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#8a8a8a}
+.counts b{display:block;font-size:1.6rem;font-weight:300;color:#fff;letter-spacing:0}
+.filters{display:grid;grid-template-columns:2fr 1fr 1fr auto auto auto;gap:.8rem;align-items:end;margin-bottom:1.4rem}
+.filters label{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:#8a8a8a;display:flex;flex-direction:column;gap:.35rem}
+.filters input[type=search],.filters select,.addf input{background:#000;color:#fff;border:0;border-bottom:1px solid rgba(255,255,255,.35);padding:.5rem 0;font:inherit;font-size:14px;border-radius:0}
+.filters select option{background:#000}
+.filters .chk{flex-direction:row;align-items:center;gap:.45rem;padding-bottom:.55rem}
+.btnx{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);padding:.55rem 1.1rem;font:500 10.5px/1 "Inter",Helvetica,sans-serif;letter-spacing:.22em;text-transform:uppercase;cursor:pointer}
+.btnx:hover{background:#fff;color:#000}
+.addf{display:none;grid-template-columns:2fr 1.4fr 1fr 1fr auto;gap:.8rem;align-items:end;border:1px solid rgba(255,255,255,.16);padding:1rem;margin-bottom:1.4rem}
+.addf.on{display:grid}
+table.bl{width:100%;border-collapse:collapse;font-size:13px}
+.bl th{text-align:left;padding:.55rem .5rem;border-bottom:1px solid rgba(255,255,255,.35)!important}
+.bl td{padding:.55rem .5rem;border-bottom:1px solid rgba(255,255,255,.1)!important;vertical-align:top}
+.bl tr:hover td{background:#070707}
+.bl a.t{color:#fff;text-decoration:none}
+.bl a.t:hover{color:#c9a227}
+.bl .u{color:#6f6f6f;font-size:11px;word-break:break-all}
+.bl .f{color:#8a8a8a;font-size:11px;letter-spacing:.08em}
+.tagp{display:inline-block;border:1px solid rgba(255,255,255,.2);padding:0 .4rem;font-size:10px;letter-spacing:.1em;margin:0 .25rem .2rem 0;color:#aaa;text-transform:uppercase}
+.star{background:none;border:0;color:#555;font-size:16px;cursor:pointer;padding:0}
+.star.on{color:#c9a227}
+.act button{background:none;border:0;color:#8a8a8a;font:500 10px "Inter",sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;padding:0 .4rem}
+.act button:hover{color:#fff}
+.lock{color:#c9a227;font-size:10px;letter-spacing:.16em}
+.more{text-align:center;margin:1.4rem 0;color:#8a8a8a;font-size:11px;letter-spacing:.16em}
+.msg{min-height:1.2em;color:#d9b45a;font-size:12px;margin:.4rem 0}
+@media (max-width:900px){.bm{padding:1.4rem}.filters,.addf{grid-template-columns:1fr 1fr}.bl .hide-s{display:none}}
+</style>
+</head>
+<body>
+<main class="bm">
+  <header>
+    <div><h1>BOOKMARK MANAGER</h1><div class="sub">Favorites &amp; links database · favorites.db · private</div></div>
+    <nav><a href="./">← Bridge</a><a href="favorites/Favorites.html">Favorites page</a><a href="bookmarks.html">BETA links</a></nav>
+  </header>
+  <div class="counts" id="counts"><div><b>—</b>Active</div></div>
+  <div class="filters">
+    <label>Search<input type="search" id="q" placeholder="Title, URL, tag, note"/></label>
+    <label>Folder<select id="folder"><option value="">All folders</option></select></label>
+    <label>Tag<select id="tag"><option value="">All tags</option></select></label>
+    <label class="chk"><input type="checkbox" id="fav"/>Favorites</label>
+    <label class="chk"><input type="checkbox" id="arch"/>Archived</label>
+    <button class="btnx" id="addBtn" type="button">+ Add link</button>
+  </div>
+  <form class="addf" id="addf">
+    <label class="f">URL<input id="aUrl" required placeholder="https://"/></label>
+    <label class="f">Title<input id="aTitle"/></label>
+    <label class="f">Folder<input id="aFolder" list="folderList"/></label>
+    <label class="f">Tags (comma)<input id="aTags"/></label>
+    <button class="btnx" type="submit" id="aSave">Save</button>
+    <input type="hidden" id="aId"/>
+  </form>
+  <datalist id="folderList"></datalist>
+  <div class="msg" id="msg" role="status"></div>
+  <table class="bl">
+    <thead><tr><th style="width:28px">★</th><th>Link</th><th class="hide-s">Folder</th><th class="hide-s">Tags</th><th class="hide-s">Source</th><th style="width:150px"></th></tr></thead>
+    <tbody id="rows"><tr><td colspan="6" class="f">Loading…</td></tr></tbody>
+  </table>
+  <div class="more"><button class="btnx" id="moreBtn" type="button" hidden>Load more</button> <span id="shown"></span></div>
+</main>
+<script src="bookmark-manager.js?v=20260926s"></script>
+</body>
+</html>
