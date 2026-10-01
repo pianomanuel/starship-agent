@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="theme-color" content="#c9a227"/>
+<title>ManuelOps · PCS + GitHub dashboard</title>
+<style>
+  :root { --navy:#0d0f14; --gold:#c9a227; --cream:#f7f1e3; --muted:#9aa0a8; --line:#3a3428; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:var(--navy); color:var(--cream); font:16px/1.45 Segoe UI, Arial, sans-serif; }
+  header { padding:22px 22px 12px; border-bottom:1px solid var(--line); }
+  header h1 { margin:0; font-size:22px; }
+  header p { margin:6px 0 0; color:#d7c38a; font-size:13px; }
+  nav a { display:inline-block; margin:10px 8px 0 0; background:var(--gold); color:#1a1a1a; text-decoration:none; padding:8px 10px; font:700 12px Arial; }
+  nav a.ghost { background:transparent; color:#d9c78a; border:1px solid #5a4a20; }
+  .wrap { max-width:980px; margin:0 auto; padding:18px 16px 48px; }
+  .grid { display:grid; gap:14px; }
+  @media (min-width:760px){ .grid { grid-template-columns:1fr 1fr; } }
+  .card { background:#16181f; border:1px solid var(--line); padding:16px 18px; }
+  .card b { color:var(--gold); display:block; margin-bottom:6px; }
+  .meta { color:var(--muted); font-size:13px; }
+  .chips a { display:inline-block; margin:8px 8px 0 0; font-size:12px; color:#cfe0ff; background:#1c2740; border:1px solid #33466a; padding:6px 8px; text-decoration:none; }
+  footer { color:var(--muted); font-size:12px; margin-top:22px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>PCS instance · GitHub dashboard</h1>
+  <p>CARD-027 · TRK-016 · CIR-002 · Sprint card = Monopoly card. One object, two roofs.</p>
+  <nav>
+    <a href="index.html">Landing</a>
+    <a href="board.html">Board</a>
+    <a href="https://pianomanuel.atlassian.net/jira/software/projects/PCS/list?jql=project%20%3D%20PCS%20ORDER%20BY%20cf%5B10019%5D%20ASC">Jira PCS list</a>
+    <a class="ghost" href="https://pianomanuel.atlassian.net/jira/software/projects/KAN/boards/2?filter=&groupBy=none">Jira KAN</a>
+    <a class="ghost" href="https://github.com/pianomanuel/ManuelOps">GitHub repo</a>
+  </nav>
+</header>
+<div class="wrap">
+  <div class="grid">
+    <section class="card">
+      <b>Jira · project PCS</b>
+      <div class="meta">New instance. List ordered by custom field cf[10019] (Rank). Login required. Do not mint a Monopoly card for each submenu line.</div>
+      <div class="chips">
+        <a href="https://pianomanuel.atlassian.net/jira/software/projects/PCS/list?jql=project%20%3D%20PCS%20ORDER%20BY%20cf%5B10019%5D%20ASC">Open PCS list</a>
+        <a href="https://pianomanuel.atlassian.net/jira/software/projects/PCS/board">PCS board</a>
+        <a href="https://pianomanuel.atlassian.net/jira/software/projects/KAN/boards/2?filter=&groupBy=none">KAN roof</a>
+      </div>
+    </section>
+    <section class="card">
+      <b>GitHub · pianomanuel/ManuelOps</b>
+      <div class="meta">Private primary database. Issues are the writable deck. GitHub Projects API is not granted to this connector yet.</div>
+      <div class="chips">
+        <a href="https://github.com/pianomanuel/ManuelOps">Repo</a>
+        <a href="https://github.com/pianomanuel/ManuelOps/issues">Issues</a>
+        <a href="https://github.com/pianomanuel/ManuelOps/issues/1">Issue #1 CARD-027</a>
+        <a href="https://github.com/pianomanuel/ManuelOps/tree/main/site">site/</a>
+      </div>
+    </section>
+    <section class="card">
+      <b>This card</b>
+      <div class="meta">CARD-027 · TRK-016 · SRC-022 · APP-033 Jira Cloud · APP-019 GitHub · ACC-015 pianomanuel.atlassian.net</div>
+      <div class="meta" style="margin-top:8px">Next action: open the PCS list, confirm the Rank sort is the order you want, then decide whether KAN stays the board roof or PCS becomes the working list.</div>
+    </section>
+    <section class="card">
+      <b>Rule</b>
+      <div class="meta">Link, do not fork. No Jira API tonight. No password or token on this page. Health stays flags. Jim stays Protected.</div>
+    </section>
+  </div>
+  <footer>Joseph Robert Manuel, IV · compiled 2026-09-12</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+pianomanuel.com BETA 1.01 build
+Built 2026-09-12 19:53 America/New_York
+Hub gate: site/hub-1.01.html + Drive pianomanuel.com_BETA_1.01_hub.html

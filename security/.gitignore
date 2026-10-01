@@ -1,0 +1,5 @@
+*.env
+!apple.env.example
+*.p8
+*.p12
+AuthKey_*.p8
